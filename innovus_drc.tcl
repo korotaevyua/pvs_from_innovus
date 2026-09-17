@@ -1,5 +1,8 @@
+
+#set YOUR_GDS_NAME and YOUR_SCRIPT_TO_STREAM_OUT_MERGED_GDS
+
 proc pvs_drc {} {
-    if {![file exists out/asterix.GDSout.merged.gds.gz]} {
+    if {![file exists YOUR_GDS_NAME.gds]} {
         source YOUR_SCRIPT_TO_STREAM_OUT_MERGED_GDS.tcl
     }
     mkdir -p drc ; cd drc
