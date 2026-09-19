@@ -1,0 +1,51 @@
+name: Bug report
+description: Something misbehaves in an Innovus or PVS run
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Include the command you typed and the message you got.
+      placeholder: |
+        innovus> pvs_drc -rules /pdk/.../drc.rul -cpus 32
+        ** [PVS] WARNING: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+
+  - type: input
+    id: innovus
+    attributes:
+      label: Innovus version
+      placeholder: "21.14-s082_1"
+    validations:
+      required: true
+
+  - type: input
+    id: pvs
+    attributes:
+      label: PVS version
+      placeholder: "23.11"
+    validations:
+      required: true
+
+  - type: input
+    id: kit
+    attributes:
+      label: Foundry kit / node
+      description: Node and deck family are usually enough - no need for anything confidential.
+      placeholder: "TSMC N7, signoff DRC deck"
+
+  - type: textarea
+    id: dryrun
+    attributes:
+      label: Output of the same command with -dryrun
+      description: This shows the exact command line that would have been launched.
+      render: text

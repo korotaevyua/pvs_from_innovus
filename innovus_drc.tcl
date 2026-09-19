@@ -1,15 +1,15 @@
+#=============================================================================
+#  innovus_drc.tcl -- compatibility shim
+#
+#  The original single-proc version of this repo lived here. Everything now
+#  sits in pvs.tcl + tcl/, and pvs_drc takes real arguments instead of the
+#  YOUR_GDS_NAME / RULE_DECK placeholders you used to edit by hand:
+#
+#      source innovus_drc.tcl
+#      pvs_drc -rules /pdk/pvs/drc.rul -gds top_merged.gds \
+#              -stream scripts/stream_out.tcl -cpus 16
+#
+#  Sourcing this file keeps old setup scripts working.
+#=============================================================================
 
-#set YOUR_GDS_NAME and YOUR_SCRIPT_TO_STREAM_OUT_MERGED_GDS
-
-proc pvs_drc {} {
-    if {![file exists YOUR_GDS_NAME.gds]} {
-        source YOUR_SCRIPT_TO_STREAM_OUT_MERGED_GDS.tcl
-    }
-    mkdir -p drc ; cd drc
-    exec pvs -dp 16 -drc RULE_DECK
-    clearDrc
-    cd ..
-    loadViolationReport -type PVS -filename drc/DRC_RES.db
-    win
-    violationBrowser
-}
+source [file join [file dirname [file normalize [info script]]] pvs.tcl]

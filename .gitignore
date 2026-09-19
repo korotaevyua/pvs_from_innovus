@@ -1,0 +1,47 @@
+# --- PVS / run output -------------------------------------------------------
+drc/
+lvs/
+reports/
+*.db
+*.rep
+*.rul.log
+pvs_*.log
+pvs_run.log
+.pvs*/
+pvsrun*/
+
+# --- Layout / netlist data (never belongs in a script repo) -----------------
+*.gds
+*.gds.gz
+*.oas
+*.cdl
+*.sp
+*.def
+*.def.gz
+*.lef
+
+# --- Innovus session leftovers ----------------------------------------------
+innovus.log*
+innovus.cmd*
+innovus.logv*
+*.dat/
+*.invs_temp/
+*.rpt
+timingReports/
+.cadence/
+.simvision/
+.fe_status
+libscore_cell.log
+rc*.cmd
+
+# --- Local site configuration ------------------------------------------------
+# only the auto-loaded copy next to pvs.tcl; examples/pvs_defaults.tcl is tracked
+/pvs_defaults.tcl
+
+# --- Editors / OS ------------------------------------------------------------
+*~
+*.swp
+*.bak
+.DS_Store
+.vscode/
+.idea/
